@@ -10,79 +10,83 @@ const config = {
     default: {
       disableLimit: true,
       domains: {
-        api: 'http://127.0.0.1:9011',
+        api: "http://127.0.0.1:9011",
       },
     },
     // 本地开发
     localhost: {
       domains: {
-        api: 'http://127.0.0.1:9011',
+        api: "http://127.0.0.1:9011",
       },
     },
     // 测试环境
     staging: {
       domains: {
-        api: 'http://192.168.31.106',
+        api: "http://192.168.31.106",
       },
     },
     // 生产环境
     production: {
       domains: {
-        api: 'http://192.168.31.106',
+        api: "http://www.archliu.cn:9001",
       },
     },
   },
+  constants: {
+    routePrefix: "/homekit/",
+    rootLimitFlag: "/homekit/",
+  },
   entry: [
     {
-      type: 'preset-route', // 路由组件
-      path: '/login',
+      type: "preset-route", // 路由组件
+      path: "/login",
       pathToComponent: true,
     },
     {
-      type: 'private-route', // 私有路由
-      path: '/',
-      redirect: '/login',
+      type: "private-route", // 私有路由
+      path: "/",
+      redirect: "/login",
       onAuth: () => {
-        return true
+        return true;
       },
       children: {
-        type: 'aside-layout',
+        type: "aside-layout",
         header: {
           showDevItem: false,
           brand: {
             // 公司品牌
-            logo: '/static/images/archlinux-logo.png',
-            title: 'HomeKit',
+            logo: "/static/images/archlinux-logo.png",
+            title: "HomeKit",
             link: {
-              title: 'dashboard',
-              href: '/',
+              title: "dashboard",
+              href: "/",
             },
           },
           items: [
             {
-              type: 'item-setting',
-              align: 'right',
+              type: "item-setting",
+              align: "right",
             },
           ],
         },
         routes: [
           // 应用内路由
           {
-            nodePath: '/',
-            label: '菜单目录',
+            nodePath: "/",
+            label: "菜单目录",
             children: [
               {
-                path: '/',
-                label: 'Dashboard',
-                nodePath: 'dashboard',
+                path: "/",
+                label: "Dashboard",
+                nodePath: "dashboard",
                 exact: true,
-                pathToComponent: 'dashboard',
+                pathToComponent: "dashboard",
                 sideVisible: false,
               },
               {
-                label: '设备列表',
-                icon: 'fa fa-align-justify',
-                nodePath: 'iots',
+                label: "设备列表",
+                icon: "fa fa-align-justify",
+                nodePath: "iots",
               },
             ],
           },
@@ -90,6 +94,6 @@ const config = {
       },
     },
   ],
-}
+};
 
-export default config
+export default config;

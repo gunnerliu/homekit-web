@@ -25,13 +25,13 @@ export const schema = {
         },
       },
       {
-        label: "开关",
+        label: "设备值",
         type: "mapping",
         name: "switchValue",
         map: {
           ON: "<span class='label label-success'>开</span>",
           OFF: "<span class='label label-warning'>关</span>",
-          "*": "其他：${switchValue}",
+          "*": "${switchValue}",
         },
       },
       {
@@ -45,7 +45,7 @@ export const schema = {
         map: {
           OFFLINE: "<span class='label label-danger'>离线</span>",
           ONLINE: "<span class='label label-success'>在线</span>",
-          "*": "其他：${onlineState}",
+          "*": "${onlineState}",
         },
       },
       {
